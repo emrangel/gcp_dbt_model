@@ -1,0 +1,8 @@
+.git
+.github
+.venv
+target
+dbt_packages
+logs
+terraform
+*.md

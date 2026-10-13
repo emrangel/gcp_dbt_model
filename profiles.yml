@@ -10,3 +10,11 @@ trendy:
       location: US
       threads: 4
       maximum_bytes_billed: 1000000000
+    prod:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT', 'emra-co') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'trendy') }}"
+      location: US
+      threads: 8
+      job_execution_timeout_seconds: 1800
