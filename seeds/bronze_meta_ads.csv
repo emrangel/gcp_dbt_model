@@ -1,0 +1,9 @@
+date,campaign_id,campaign_name,country,impressions,clicks,spend,_loaded_at
+2026-10-01,2001,TRD_Verano_Prospecting,cr,50000,900,420.50,2026-10-02 03:00:00
+2026-10-01,2001,TRD_Verano_Prospecting,cr,50000,900,420.50,2026-10-02 05:00:00
+2026-10-01,2002,TRD_Verano_Retargeting, CR ,12000,480,150.00,2026-10-02 03:00:00
+2026-10-01,2003,TRD_BlackFriday_Teaser,mx,80000,1200,610.75,2026-10-02 03:00:00
+2026-10-02,2001,TRD_Verano_Prospecting,cr,52000,950,435.20,2026-10-03 03:00:00
+2026-10-02,2002,TRD_Verano_Retargeting,CR,11500,,148.30,2026-10-03 03:00:00
+2026-10-02,2003,TRD_BlackFriday_Teaser,MX,82000,1250,620.00,2026-10-03 03:00:00
+2026-10-02,2004,  TRD_Colombia_Launch,co,30000,600,280.00,2026-10-03 03:00:00

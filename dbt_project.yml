@@ -12,3 +12,26 @@ test-paths: ["tests"]
 
 # Lo que borra "dbt clean"
 clean-targets: ["target", "dbt_packages"]
+
+#new data
+seeds:
+  trendy:
+    +schema: bronze
+    bronze_meta_ads:
+      # En bronze todo llega como texto, como un dump crudo
+      +column_types:
+        date: string
+        campaign_id: string
+        campaign_name: string
+        country: string
+        impressions: string
+        clicks: string
+        spend: string
+        _loaded_at: string
+
+
+models:
+  trendy:
+    silver:
+      +schema: silver
+      +materialized: view

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_meta_ads
+    description: "Meta Ads diario por campaña, tipado y deduplicado."
+    columns:
+      - name: report_date
+        description: "Fecha del dato en Meta Ads."
+        data_tests: [not_null]
+      - name: campaign_id
+        data_tests: [not_null]
+      - name: country_code
+        description: "País en ISO-2 mayúsculas."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['CR', 'MX', 'CO', 'PA', 'GT']
