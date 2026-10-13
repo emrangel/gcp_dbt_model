@@ -1,0 +1,15 @@
+# Python: el entorno se recrea con "uv sync"
+.venv/
+
+# dbt: todo esto lo generan los comandos de dbt
+target/
+dbt_packages/
+logs/
+**/.user.yml
+
+# Terraform: proveedores descargados, valores reales y planes
+terraform/.terraform/
+terraform/terraform.tfvars
+terraform/tfplan
+terraform/*.tfstate
+terraform/*.tfstate.*

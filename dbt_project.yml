@@ -1,0 +1,14 @@
+name: 'trendy'
+version: '1.0.0'
+
+# Qué bloque de profiles.yml usar para conectarse
+profile: 'trendy'
+
+# Dónde buscar cada tipo de archivo
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+# Lo que borra "dbt clean"
+clean-targets: ["target", "dbt_packages"]
