@@ -2,6 +2,7 @@ locals {
   # Vamos agregando APIs a medida que cada parte las necesite
   apis = [
     "bigquery.googleapis.com",
+    "iam.googleapis.com"
   ]
 }
 
