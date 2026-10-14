@@ -9,3 +9,16 @@ variable "state_bucket" {
   type        = string
   default     = "emra-co-tfstate"
 }
+
+
+variable "clients" {
+  description = "Clientes con su propio Terraform. Cada uno recibe <cliente>-terraform."
+  type        = list(string)
+  default     = ["trendy"]
+}
+
+variable "admin" {
+  description = "Quién puede suplantar las SA de Terraform (formato user:correo)."
+  type        = string
+  default     = "user:erriick1122@gmail.com"
+}
