@@ -13,3 +13,10 @@ terraform/terraform.tfvars
 terraform/tfplan
 terraform/*.tfstate
 terraform/*.tfstate.*
+
+# Terraform: en cualquier carpeta (terraform/, terraform/bootstrap/, ...)
+**/.terraform/
+**/terraform.tfvars
+**/tfplan
+**/*.tfstate
+**/*.tfstate.*
