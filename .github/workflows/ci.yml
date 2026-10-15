@@ -1,0 +1,51 @@
+name: ci
+
+# En cada PR: dbt contra los datasets de CI y Terraform validado
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  id-token: write   # para pedirle a GitHub el token de Workload Identity
+
+concurrency:
+  group: dbt-ci     # los PR comparten trendy_ci_*: uno a la vez
+  cancel-in-progress: false
+
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+    env:
+      GCP_PROJECT: ${{ vars.GCP_PROJECT }}
+      DBT_CI_DATASET: ${{ vars.DBT_CI_DATASET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.WIF_PROVIDER }}
+          service_account: ${{ vars.DEPLOYER_SA }}
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.13.0"
+          enable-cache: true
+
+      - run: uv sync --locked
+      - run: uv run dbt deps
+      - run: uv run dbt build --target ci
+
+  terraform:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [terraform, terraform/bootstrap]
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform fmt -check
+      - run: terraform init -backend=false
+      - run: terraform validate
