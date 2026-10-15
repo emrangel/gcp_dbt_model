@@ -8,10 +8,10 @@ terraform {
     }
   }
 
-  # Sin bloque "backend": el state queda local (terraform.tfstate).
-  # En B3 lo movemos al bucket.
-}
-
-provider "google" {
-  project = var.project_id
+  # El state de bootstrap vive en el mismo bucket que administra.
+  # Lo aplica el admin con su propia cuenta (sin suplantar).
+  backend "gcs" {
+    bucket = "emra-co-tfstate"
+    prefix = "bootstrap"
+  }
 }

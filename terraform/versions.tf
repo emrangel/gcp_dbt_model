@@ -8,14 +8,17 @@ terraform {
     }
   }
 
-  # Mismo bucket que el proyecto anterior, distinta carpeta
+  # El state lo lee y escribe trendy-terraform, no tu cuenta
   backend "gcs" {
-    bucket = "emra-co-tfstate"
-    prefix = "trendy"
+    bucket                      = "emra-co-tfstate"
+    prefix                      = "trendy"
+    impersonate_service_account = "trendy-terraform@emra-co.iam.gserviceaccount.com"
   }
 }
 
+# Los recursos los crea trendy-terraform, no tu cuenta
 provider "google" {
-  project = var.project_id
-  region  = var.region
+  project                     = var.project_id
+  region                      = var.region
+  impersonate_service_account = "${var.prefix}-terraform@${var.project_id}.iam.gserviceaccount.com"
 }
