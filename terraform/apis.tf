@@ -2,7 +2,10 @@ locals {
   # Vamos agregando APIs a medida que cada parte las necesite
   apis = [
     "bigquery.googleapis.com",
-    "iam.googleapis.com"
+    "iam.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "run.googleapis.com",
+    "cloudscheduler.googleapis.com",
   ]
 }
 

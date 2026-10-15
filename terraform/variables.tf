@@ -19,3 +19,15 @@ variable "prefix" {
   description = "Nombre corto del cliente. Todos los recursos llevan este prefijo."
   type        = string
 }
+
+variable "schedule" {
+  description = "Cron de la ejecución diaria."
+  type        = string
+  default     = "0 6 * * *"
+}
+
+variable "time_zone" {
+  description = "Zona horaria del cron."
+  type        = string
+  default     = "America/Bogota"
+}

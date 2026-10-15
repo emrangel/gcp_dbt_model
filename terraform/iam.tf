@@ -44,3 +44,20 @@ resource "google_bigquery_dataset_iam_member" "deployer_ci_editor" {
   role       = "roles/bigquery.dataEditor"
   member     = google_service_account.deployer.member
 }
+
+
+# ---------------------------------------------------------- Deployer (deploy)
+
+# Para actualizar un job que corre como trendy-runner, hay que poder "actuar como" ella
+resource "google_service_account_iam_member" "deployer_acts_as_runner" {
+  service_account_id = google_service_account.runner.name
+  role               = "roles/iam.serviceAccountUser"
+  member             = google_service_account.deployer.member
+}
+
+# Solo lectura de Cloud Run: gcloud la necesita para seguir el progreso del deploy
+resource "google_project_iam_member" "deployer_run_viewer" {
+  project = var.project_id
+  role    = "roles/run.viewer"
+  member  = google_service_account.deployer.member
+}
