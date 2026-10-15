@@ -31,3 +31,8 @@ variable "time_zone" {
   type        = string
   default     = "America/Bogota"
 }
+
+variable "github_repo" {
+  description = "Único repo que puede desplegar, formato owner/repo."
+  type        = string
+}
