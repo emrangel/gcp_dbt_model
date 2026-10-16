@@ -7,13 +7,6 @@ dbt_packages/
 logs/
 **/.user.yml
 
-# Terraform: proveedores descargados, valores reales y planes
-terraform/.terraform/
-terraform/terraform.tfvars
-terraform/tfplan
-terraform/*.tfstate
-terraform/*.tfstate.*
-
 # Terraform: en cualquier carpeta (terraform/, terraform/bootstrap/, ...)
 **/.terraform/
 **/terraform.tfvars
