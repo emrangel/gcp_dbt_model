@@ -1,0 +1,13 @@
+# Copia este archivo como terraform.tfvars y pon tus valores:
+#   PowerShell:  copy terraform.tfvars.example terraform.tfvars
+# terraform.tfvars no se sube a git (está en .gitignore).
+
+project_id  = "emra-co"                 # tu proyecto de GCP
+prefix      = "trendy"                  # nombre corto del cliente: lo llevan todos los recursos
+github_repo = "emrangel/gcp_dbt_model"  # único repo que puede desplegar (owner/repo)
+
+# Opcionales (estos son los valores por defecto)
+# region      = "us-central1"
+# bq_location = "US"
+# schedule    = "0 6 * * *"
+# time_zone   = "America/Bogota"

@@ -15,3 +15,8 @@ terraform {
     prefix = "bootstrap"
   }
 }
+
+# Sin este bloque, Terraform tomaría el proyecto de la configuración local de gcloud
+provider "google" {
+  project = var.project_id
+}
